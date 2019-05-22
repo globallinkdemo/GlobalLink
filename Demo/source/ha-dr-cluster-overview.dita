@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="iq-bot-ha-dr-cluster-overview" xml:lang="en-US">
+    <title>HA cluster configuration overview</title>
+    <shortdesc>To support <ph keyref="enterprise"/> your data center, configure an HA cluster.
+        Follow your company methods and procedures for implementing your data center cluster. </shortdesc>
+    <prolog>
+        <author>Automation Anywhere</author>
+        <author type="contributor">bethany.kanui</author>
+        <critdates>
+            <created date="2019-02-19"/>
+            <!-- Update the revised critdate for changes other than typos -->
+            <revised modified="2019-02-19"/>
+            <!--bethany.kanui-->
+            <revised modified="2019/05/07"/>
+            <!--bethany.kanui-->
+            <revised modified="2019/05/08"/>
+            <!--bethany.kanui-->
+            <revised modified="2019/05/09"/>
+            <!--bethany.kanui-->
+            <revised modified="2019/05/13"/>
+        </critdates>
+        <metadata>
+            <keywords>
+                <indexterm>HA<indexterm>processes</indexterm></indexterm>
+                <indexterm>cluster<indexterm>processes</indexterm></indexterm>
+            </keywords>
+        </metadata>
+        <resourceid id="iq-bot-ha-dr-cluster-overview"></resourceid>
+    </prolog>
+    <conbody>
+        <p>HA clusters protect services and
+            data in the event of a server or service failure. The following is a list of processes
+            associated with clusters. <ul id="ul_pxl_mgk_chb">
+                <li><b>Database replication</b>—Configure synchronous replication between the
+                    primary site (active) and secondary site (passive) MS SQL servers to ensure
+                    consistency in the event of a database node failure. </li>
+                <li><b>Downtime</b>—The amount of downtime depends on the number of restart attempts
+                    the administrator configures for the primary server services, the number of
+                    failovers allowed per number of hours, and the failback configuration.</li>
+                <li><b>Failback</b>—After the primary server is returned to normal, the workload can
+                    be failed back from the secondary servers to the primary servers. The primary
+                    server becomes the active server again.<p>Restoring operations to the primary
+                        system or site after a failover or disaster recovery on a secondary system
+                        or site. </p></li>
+                <li><b>Failover</b>—If one of the primary servers fails, the workload of the failed
+                    server automatically shifts to the secondary server in the cluster. This
+                    automatic process is called failover. Failover ensures continuous availability
+                    of applications and data. When failover completes, the secondary server becomes
+                    the active server. <p>When a (primary) system detects a fault or failure, it
+                        automatically transfers control to a (secondary) duplicate system. This
+                        applies to HA clusters, where failover is from one server to
+                    another.</p></li>
+                <li><b>Graceful degradation</b>—Process allowing cluster dependencies to operate
+                    gracefully on a degraded primary site.</li>
+                <li><b>Redundancy</b>—HA clusters use redundancy to prevent single points of failure
+                    (SPOF), such as a failed server or service. HA clusters include primary (active)
+                    servers that host services or databases and secondary (passive) servers that
+                    host replicated copies of the services and databases. </li>
+                <li><b>Replication</b>—The secondary servers have the same configuration and
+                    software as the primary servers, they are a duplicate (redundant copy) of the
+                    primary. Data is replicated (copied) from the primary servers to the secondary
+                    servers. </li>
+            </ul></p>
+        <p>To support HA and DR for <ph keyref="enterprise"/>, configure the selected components in
+            your data center for HA.</p>
+        <ul id="ul_tpw_t44_bhb"> 
+            <li><b>Cluster components</b>—A cluster is a set servers (nodes) that are connected by
+                physical cables and software. In an HA environment, these clusters of servers are
+                allowed to be in the same physical data center. <p>
+                    <note>In the context of clusters, though the terms server, host, and node each
+                        have specific meaning, they are frequently used interchangeably.</note>
+                </p><ul id="ul_a4m_shs_xgb">
+                    <li><b>Cluster group (role)</b>—Group of clustered services that failover
+                        together and are dependent on each other. </li>
+                    <li><b>Host</b>—The cluster machine that is hosting the services.</li>
+                    <li><b>Node</b>—A generic term for a machine in a cluster.</li>
+                    <li><b>Primary node</b>—The active node in the cluster. The machine where the
+                        production activities run. </li>
+                    <li><b>Secondary node</b>—The machine that is designated as the target in the
+                        event of a failover. The secondary node is a passive duplicate of the
+                        primary node. </li>
+                    <li><b>Server</b>—The machine in the cluster installed with the server operating
+                        system.</li>
+                </ul></li>
+            <li><b>Resource version control (VCS or SVN)</b></li>
+        </ul>
+        <p>HA cluster technologies guard against three specific types of failures:</p>
+        <ul id="ul_ehy_dnj_xgb">
+            <li><b>Application and service failures</b>—affecting application software and essential
+                services.</li>
+            <li><b>Site failures in multisite organizations</b>—caused by natural disasters, power
+                outages, or connectivity outages.</li>
+            <li><b>System and hardware failures</b>—affecting hardware components such as CPUs,
+                drives, memory, network adapters, and power supplies.</li>
+        </ul>
+        <p>This ability to handle failure allows clusters to meet two requirements that are typical
+            in most data center environments:</p>
+        <ul id="ul_pr3_cnj_xgb">
+            <li><b>High availability</b>—the ability to provide end users with access to a service
+                for a high percentage of time and reduces unscheduled outages.</li>
+            <li><b>High reliability</b>—the ability to reduce the frequency of system failure.</li>
+        </ul>
+        
+        </conbody>
+    <related-links><?oxy-placeholder content="These links represent topic-to-topic connections, or connections to non-DITA-topic resources."?></related-links>
+</concept>
