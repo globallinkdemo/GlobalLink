@@ -29,7 +29,7 @@
         <resourceid id="iq-bot-ha-dr-cluster-overview"></resourceid>
     </prolog>
     <conbody>
-        <p>HA clusters protect services and
+        <p>UPDATE HERE HA clusters protect services and
             data in the event of a server or service failure. The following is a list of processes
             associated with clusters. <ul id="ul_pxl_mgk_chb">
                 <li><b>Database replication</b>—Configure synchronous replication between the
